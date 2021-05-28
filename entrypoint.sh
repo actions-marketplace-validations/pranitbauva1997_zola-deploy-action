@@ -41,6 +41,13 @@ if [[ -z "$GITHUB_HOSTNAME" ]]; then
     GITHUB_HOSTNAME="github.com"
 fi
 
+minifyhtml() {
+    COMMAND="htmlmin"
+    find `pwd` -iname "*.html" | sort -u | while read i; do
+        $COMMAND -o $i $i
+    done
+}
+
 main() {
     echo "Starting deploy..."
 
@@ -63,6 +70,12 @@ main() {
 
     echo Building with flags: ${BUILD_FLAGS:+"$BUILD_FLAGS"}
     zola build ${BUILD_FLAGS:+$BUILD_FLAGS}
+
+    # Minify HTML
+    CURRENT_DIR="$PWD"
+    cd $BUILD_DIR
+    minifyhtml()
+    cd $CURRENT_DIR
 
     if ${BUILD_ONLY}; then
         echo "Build complete. Deployment skipped by request"
