@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Build with the latest action rev
-      uses: pranitbauva1997/zola-deploy-action@v1.0
+      uses: pranitbauva1997/zola-deploy-action@master
       env:
         BUILD_ONLY: true
         BUILD_DIR: test-site
@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Build with the latest action rev
-      uses: pranitbauva1997/zola-deploy-action@v1.0
+      uses: pranitbauva1997/zola-deploy-action@master
       env:
         BUILD_ONLY: true
         BUILD_DIR: test-site
