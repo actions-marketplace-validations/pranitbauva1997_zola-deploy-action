@@ -43,10 +43,10 @@ fi
 
 minifyhtml() {
     COMMAND="htmlmin"
-    find `pwd` -iname "*.html" | sort -u | while read i; do
-        $COMMAND -o "$i.new" $i
-        rm $i
-        mv "$i.new" $i
+    find $(pwd) -iname "*.html" | sort -u | while read i; do
+        $COMMAND -o "$i.new" "$i"
+        rm "$i"
+        mv "$i.new" "$i"
     done
 }
 
@@ -75,9 +75,9 @@ main() {
 
     # Minify HTML
     CURRENT_DIR="$PWD"
-    cd $BUILD_DIR
+    cd "$BUILD_DIR"
     minifyhtml
-    cd $CURRENT_DIR
+    cd "$CURRENT_DIR"
 
     if ${BUILD_ONLY}; then
         echo "Build complete. Deployment skipped by request"
