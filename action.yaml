@@ -1,6 +1,6 @@
-name: 'Zola Deploy to Pages'
-description: 'Build and deploy a Zola site to GitHub Pages'
-author: 'Shaleen Jain'
+name: 'Zola Deploy to Pages with HTML minification'
+description: 'Build and deploy a Zola site to GitHub Pages and minify all HTML files'
+author: 'Pranit Bauva'
 runs:
   using: 'docker'
   image: 'Dockerfile'
