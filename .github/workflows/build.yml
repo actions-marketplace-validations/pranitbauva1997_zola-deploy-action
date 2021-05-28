@@ -7,7 +7,7 @@ jobs:
     name: Build with minimal options
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1.0
+    - uses: actions/checkout@master
     - name: Build with the latest action rev
       uses: pranitbauva1997/zola-deploy-action@v1.0
       env:
@@ -17,7 +17,7 @@ jobs:
     name: Build with BUILD_FLAGS
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1.0
+    - uses: actions/checkout@master
     - name: Build with the latest action rev
       uses: pranitbauva1997/zola-deploy-action@v1.0
       env:
