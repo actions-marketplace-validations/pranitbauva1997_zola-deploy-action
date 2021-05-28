@@ -43,7 +43,7 @@ fi
 
 minifyhtml() {
     COMMAND="htmlmin"
-    find "$(pwd)" -iname "*.html" | sort -u | while read i; do
+    find "$(pwd)" -iname "*.html" | sort -u | while "read" i; do
         $COMMAND -o "$i.new" "$i"
         rm "$i"
         mv "$i.new" "$i"
@@ -52,7 +52,7 @@ minifyhtml() {
 
 minifyjs() {
     COMMAND="uglifyjs"
-    find "$(pwd)" -iname "*.js" | sort -u | while read i; do
+    find "$(pwd)" -iname "*.js" | sort -u | while "read" i; do
         $COMMAND -o "$i.new" "$i"
         rm "$i"
         mv "$i.new" "$i"
