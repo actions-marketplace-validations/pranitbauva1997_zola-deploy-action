@@ -84,7 +84,9 @@ main() {
 
     # Minify HTML
     current_dir="$PWD"
+    echo $current_dir
     public_dir="$current_dir/public"
+    echo $public_dir
     cd "$public_dir"
     minifyhtml
     minifyjs
