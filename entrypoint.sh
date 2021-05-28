@@ -83,11 +83,12 @@ main() {
     zola build ${BUILD_FLAGS:+$BUILD_FLAGS}
 
     # Minify HTML
-    CURRENT_DIR="$PWD"
-    cd "$BUILD_DIR"
+    current_dir="$PWD"
+    public_dir="$current_dir/public"
+    cd "$public_dir"
     minifyhtml
     minifyjs
-    cd "$CURRENT_DIR"
+    cd "$current_dir"
 
     if ${BUILD_ONLY}; then
         echo "Build complete. Deployment skipped by request"
