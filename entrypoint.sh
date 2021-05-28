@@ -43,7 +43,16 @@ fi
 
 minifyhtml() {
     COMMAND="htmlmin"
-    find $(pwd) -iname "*.html" | sort -u | while read i; do
+    find "$(pwd)" -iname "*.html" | sort -u | while read i; do
+        $COMMAND -o "$i.new" "$i"
+        rm "$i"
+        mv "$i.new" "$i"
+    done
+}
+
+minifyjs() {
+    COMMAND="uglifyjs"
+    find "$(pwd)" -iname "*.js" | sort -u | while read i; do
         $COMMAND -o "$i.new" "$i"
         rm "$i"
         mv "$i.new" "$i"
@@ -77,6 +86,7 @@ main() {
     CURRENT_DIR="$PWD"
     cd "$BUILD_DIR"
     minifyhtml
+    minifyjs
     cd "$CURRENT_DIR"
 
     if ${BUILD_ONLY}; then

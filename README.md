@@ -1,7 +1,6 @@
 # Zola Deploy Action
 
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fshalzz%2Fzola-deploy-action%2Fbadge&style=flat)](https://actions-badge.atrox.dev/shalzz/zola-deploy-action/goto)
-![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/shalzz/zola-deploy-action?sort=semver)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/pranitbauva1997/zola-deploy-action?sort=semver)
 
 A GitHub action to automatically build and deploy your [zola] site to the master
 branch as GitHub Pages.
@@ -21,12 +20,12 @@ on: push
 name: Build and deploy on push
 jobs:
   build:
-    name: shalzz/zola-deploy-action
+    name: pranitbauva1997/zola-deploy-action
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: shalzz/zola-deploy-action
-      uses: shalzz/zola-deploy-action@master
+    - name: pranitbauva1997/zola-deploy-action
+      uses: pranitbauva1997/zola-deploy-action@master@v1.0
       env:
         PAGES_BRANCH: gh-pages
         BUILD_DIR: docs
@@ -50,7 +49,7 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@master
       - name: 'Build only' 
-        uses: shalzz/zola-deploy-action@master
+        uses: pranitbauva1997/zola-deploy-action@v1.0
         env:
           BUILD_DIR: .
           TOKEN: ${{ secrets.TOKEN }}
@@ -62,7 +61,7 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@master
       - name: 'Build and deploy'
-        uses: shalzz/zola-deploy-action@master
+        uses: pranitbauva1997/zola-deploy-action@v1.0
         env:
           PAGES_BRANCH: gh-pages
           BUILD_DIR: .
