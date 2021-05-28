@@ -74,7 +74,7 @@ main() {
     # Minify HTML
     CURRENT_DIR="$PWD"
     cd $BUILD_DIR
-    minifyhtml()
+    minifyhtml
     cd $CURRENT_DIR
 
     if ${BUILD_ONLY}; then
