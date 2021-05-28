@@ -44,7 +44,9 @@ fi
 minifyhtml() {
     COMMAND="htmlmin"
     find `pwd` -iname "*.html" | sort -u | while read i; do
-        $COMMAND -o $i $i
+        $COMMAND -o "$i.new" $i
+        rm $i
+        mv "$i.new" $i
     done
 }
 
