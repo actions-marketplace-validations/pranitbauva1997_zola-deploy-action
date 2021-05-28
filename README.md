@@ -25,7 +25,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: pranitbauva1997/zola-deploy-action
-      uses: pranitbauva1997/zola-deploy-action@master@v1.0
+      uses: pranitbauva1997/zola-deploy-action@v1.0
       env:
         PAGES_BRANCH: gh-pages
         BUILD_DIR: docs
