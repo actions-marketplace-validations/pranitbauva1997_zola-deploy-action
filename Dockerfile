@@ -13,7 +13,7 @@ ENV LANGUAGE en_US.UTF-8
 
 RUN apt-get update && apt-get install -y wget git curl
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt-get install nodejs npm -y
+RUN apt-get install nodejs npm pngcrush jpegoptim -y
 RUN npm install html-minifier-cli -g
 RUN npm install uglify-js -g
 

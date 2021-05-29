@@ -59,6 +59,25 @@ minifyjs() {
     done
 }
 
+minifypng() {
+    COMMAND="pngcrush"
+    find "$(pwd)" -iname "*.png" | sort -u | while read -r i; do
+        $COMMAND -ow "$i"
+    done
+}
+
+minifyjpeg() {
+    COMMAND="jpegoptim"
+    find "$(pwd)" -iname "*.jpeg" | sort -u | while read -r i; do
+        $COMMAND "$i"
+    done
+}
+
+minifyimages() {
+    minifypng
+    minifyjpeg
+}
+
 main() {
     echo "Starting deploy..."
 
@@ -88,6 +107,7 @@ main() {
     cd "$public_dir"
     minifyhtml
     minifyjs
+    minifyimages
     cd "$current_dir"
 
     if ${BUILD_ONLY}; then
