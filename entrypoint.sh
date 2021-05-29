@@ -68,7 +68,7 @@ minifypng() {
 
 minifyjpeg() {
     COMMAND="jpegoptim"
-    find "$(pwd)" -iname "*.jpg" -o "*.jpeg" | sort -u | while read -r i; do
+    find "$(pwd)" -iname "*.jpg" -o -iname "*.jpeg" | sort -u | while read -r i; do
         $COMMAND "$i"
     done
 }
